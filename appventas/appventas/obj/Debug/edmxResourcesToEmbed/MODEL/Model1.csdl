@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sistema_ventasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tb_cliente">
+    <Key>
+      <PropertyRef Name="iDCliente" />
+    </Key>
+    <Property Name="iDCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="direccionCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="duiCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_venta" Relationship="Self.FK_tb_venta_tb_cliente" FromRole="tb_cliente" ToRole="tb_venta" />
+  </EntityType>
+  <EntityType Name="tb_detalleVenta">
+    <Key>
+      <PropertyRef Name="iDDetalleVenta" />
+    </Key>
+    <Property Name="iDDetalleVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idVenta" Type="Int32" />
+    <Property Name="idProducto" Type="Int32" />
+    <Property Name="cantidad" Type="Int32" />
+    <Property Name="precio" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="total" Type="Decimal" Precision="18" Scale="5" />
+    <NavigationProperty Name="tb_producto" Relationship="Self.FK_tb_detalleVenta_tb_producto" FromRole="tb_detalleVenta" ToRole="tb_producto" />
+    <NavigationProperty Name="tb_venta" Relationship="Self.FK_tb_detalleVenta_tb_venta" FromRole="tb_detalleVenta" ToRole="tb_venta" />
+  </EntityType>
+  <EntityType Name="tb_documento">
+    <Key>
+      <PropertyRef Name="iDDocumento" />
+    </Key>
+    <Property Name="iDDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreDocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_venta" Relationship="Self.FK_tb_venta_tb_documento" FromRole="tb_documento" ToRole="tb_venta" />
+  </EntityType>
+  <EntityType Name="tb_producto">
+    <Key>
+      <PropertyRef Name="idProducto" />
+    </Key>
+    <Property Name="idProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="precioProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="estadoProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_detalleVenta" Relationship="Self.FK_tb_detalleVenta_tb_producto" FromRole="tb_producto" ToRole="tb_detalleVenta" />
+  </EntityType>
+  <EntityType Name="tb_usuario">
+    <Key>
+      <PropertyRef Name="iDUsuario" />
+    </Key>
+    <Property Name="iDUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contrasena" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_venta" Relationship="Self.FK_tb_venta_tb_usuario" FromRole="tb_usuario" ToRole="tb_venta" />
+  </EntityType>
+  <EntityType Name="tb_venta">
+    <Key>
+      <PropertyRef Name="iDVenta" />
+    </Key>
+    <Property Name="iDVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iDDocumento" Type="Int32" />
+    <Property Name="iDCliente" Type="Int32" />
+    <Property Name="iDUsuario" Type="Int32" />
+    <Property Name="iDProducto" Type="Int32" />
+    <Property Name="totalVenta" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tb_cliente" Relationship="Self.FK_tb_venta_tb_cliente" FromRole="tb_venta" ToRole="tb_cliente" />
+    <NavigationProperty Name="tb_detalleVenta" Relationship="Self.FK_tb_detalleVenta_tb_venta" FromRole="tb_venta" ToRole="tb_detalleVenta" />
+    <NavigationProperty Name="tb_documento" Relationship="Self.FK_tb_venta_tb_documento" FromRole="tb_venta" ToRole="tb_documento" />
+    <NavigationProperty Name="tb_usuario" Relationship="Self.FK_tb_venta_tb_usuario" FromRole="tb_venta" ToRole="tb_usuario" />
+  </EntityType>
+  <Association Name="FK_tb_venta_tb_cliente">
+    <End Role="tb_cliente" Type="Self.tb_cliente" Multiplicity="0..1" />
+    <End Role="tb_venta" Type="Self.tb_venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_cliente">
+        <PropertyRef Name="iDCliente" />
+      </Principal>
+      <Dependent Role="tb_venta">
+        <PropertyRef Name="iDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_detalleVenta_tb_producto">
+    <End Role="tb_producto" Type="Self.tb_producto" Multiplicity="0..1" />
+    <End Role="tb_detalleVenta" Type="Self.tb_detalleVenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_producto">
+        <PropertyRef Name="idProducto" />
+      </Principal>
+      <Dependent Role="tb_detalleVenta">
+        <PropertyRef Name="idProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_detalleVenta_tb_venta">
+    <End Role="tb_venta" Type="Self.tb_venta" Multiplicity="0..1" />
+    <End Role="tb_detalleVenta" Type="Self.tb_detalleVenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_venta">
+        <PropertyRef Name="iDVenta" />
+      </Principal>
+      <Dependent Role="tb_detalleVenta">
+        <PropertyRef Name="idVenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_venta_tb_documento">
+    <End Role="tb_documento" Type="Self.tb_documento" Multiplicity="0..1" />
+    <End Role="tb_venta" Type="Self.tb_venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_documento">
+        <PropertyRef Name="iDDocumento" />
+      </Principal>
+      <Dependent Role="tb_venta">
+        <PropertyRef Name="iDDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_venta_tb_usuario">
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="0..1" />
+    <End Role="tb_venta" Type="Self.tb_venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="iDUsuario" />
+      </Principal>
+      <Dependent Role="tb_venta">
+        <PropertyRef Name="iDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sistema_ventasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" />
+    <EntitySet Name="tb_detalleVenta" EntityType="Self.tb_detalleVenta" />
+    <EntitySet Name="tb_documento" EntityType="Self.tb_documento" />
+    <EntitySet Name="tb_producto" EntityType="Self.tb_producto" />
+    <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" />
+    <EntitySet Name="tb_venta" EntityType="Self.tb_venta" />
+    <AssociationSet Name="FK_tb_venta_tb_cliente" Association="Self.FK_tb_venta_tb_cliente">
+      <End Role="tb_cliente" EntitySet="tb_cliente" />
+      <End Role="tb_venta" EntitySet="tb_venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_detalleVenta_tb_producto" Association="Self.FK_tb_detalleVenta_tb_producto">
+      <End Role="tb_producto" EntitySet="tb_producto" />
+      <End Role="tb_detalleVenta" EntitySet="tb_detalleVenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_detalleVenta_tb_venta" Association="Self.FK_tb_detalleVenta_tb_venta">
+      <End Role="tb_venta" EntitySet="tb_venta" />
+      <End Role="tb_detalleVenta" EntitySet="tb_detalleVenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_venta_tb_documento" Association="Self.FK_tb_venta_tb_documento">
+      <End Role="tb_documento" EntitySet="tb_documento" />
+      <End Role="tb_venta" EntitySet="tb_venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_venta_tb_usuario" Association="Self.FK_tb_venta_tb_usuario">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_venta" EntitySet="tb_venta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sistema_ventasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tb_cliente">
+    <Key>
+      <PropertyRef Name="iDCliente" />
+    </Key>
+    <Property Name="iDCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreCliente" Type="varchar" MaxLength="50" />
+    <Property Name="direccionCliente" Type="varchar" MaxLength="50" />
+    <Property Name="duiCliente" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tb_detalleVenta">
+    <Key>
+      <PropertyRef Name="iDDetalleVenta" />
+    </Key>
+    <Property Name="iDDetalleVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idVenta" Type="int" />
+    <Property Name="idProducto" Type="int" />
+    <Property Name="cantidad" Type="int" />
+    <Property Name="precio" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="5" />
+  </EntityType>
+  <EntityType Name="tb_documento">
+    <Key>
+      <PropertyRef Name="iDDocumento" />
+    </Key>
+    <Property Name="iDDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreDocumento" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tb_producto">
+    <Key>
+      <PropertyRef Name="idProducto" />
+    </Key>
+    <Property Name="idProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreProducto" Type="varchar" MaxLength="50" />
+    <Property Name="precioProducto" Type="varchar" MaxLength="50" />
+    <Property Name="estadoProducto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tb_usuario">
+    <Key>
+      <PropertyRef Name="iDUsuario" />
+    </Key>
+    <Property Name="iDUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="contrasena" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_venta">
+    <Key>
+      <PropertyRef Name="iDVenta" />
+    </Key>
+    <Property Name="iDVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="iDDocumento" Type="int" />
+    <Property Name="iDCliente" Type="int" />
+    <Property Name="iDUsuario" Type="int" />
+    <Property Name="iDProducto" Type="int" />
+    <Property Name="totalVenta" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="fecha" Type="date" />
+  </EntityType>
+  <Association Name="FK_tb_detalleVenta_tb_producto">
+    <End Role="tb_producto" Type="Self.tb_producto" Multiplicity="0..1" />
+    <End Role="tb_detalleVenta" Type="Self.tb_detalleVenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_producto">
+        <PropertyRef Name="idProducto" />
+      </Principal>
+      <Dependent Role="tb_detalleVenta">
+        <PropertyRef Name="idProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_detalleVenta_tb_venta">
+    <End Role="tb_venta" Type="Self.tb_venta" Multiplicity="0..1" />
+    <End Role="tb_detalleVenta" Type="Self.tb_detalleVenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_venta">
+        <PropertyRef Name="iDVenta" />
+      </Principal>
+      <Dependent Role="tb_detalleVenta">
+        <PropertyRef Name="idVenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_venta_tb_cliente">
+    <End Role="tb_cliente" Type="Self.tb_cliente" Multiplicity="0..1" />
+    <End Role="tb_venta" Type="Self.tb_venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_cliente">
+        <PropertyRef Name="iDCliente" />
+      </Principal>
+      <Dependent Role="tb_venta">
+        <PropertyRef Name="iDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_venta_tb_documento">
+    <End Role="tb_documento" Type="Self.tb_documento" Multiplicity="0..1" />
+    <End Role="tb_venta" Type="Self.tb_venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_documento">
+        <PropertyRef Name="iDDocumento" />
+      </Principal>
+      <Dependent Role="tb_venta">
+        <PropertyRef Name="iDDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_venta_tb_usuario">
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="0..1" />
+    <End Role="tb_venta" Type="Self.tb_venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="iDUsuario" />
+      </Principal>
+      <Dependent Role="tb_venta">
+        <PropertyRef Name="iDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sistema_ventasModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_detalleVenta" EntityType="Self.tb_detalleVenta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_documento" EntityType="Self.tb_documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_producto" EntityType="Self.tb_producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_venta" EntityType="Self.tb_venta" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tb_detalleVenta_tb_producto" Association="Self.FK_tb_detalleVenta_tb_producto">
+      <End Role="tb_producto" EntitySet="tb_producto" />
+      <End Role="tb_detalleVenta" EntitySet="tb_detalleVenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_detalleVenta_tb_venta" Association="Self.FK_tb_detalleVenta_tb_venta">
+      <End Role="tb_venta" EntitySet="tb_venta" />
+      <End Role="tb_detalleVenta" EntitySet="tb_detalleVenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_venta_tb_cliente" Association="Self.FK_tb_venta_tb_cliente">
+      <End Role="tb_cliente" EntitySet="tb_cliente" />
+      <End Role="tb_venta" EntitySet="tb_venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_venta_tb_documento" Association="Self.FK_tb_venta_tb_documento">
+      <End Role="tb_documento" EntitySet="tb_documento" />
+      <End Role="tb_venta" EntitySet="tb_venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_venta_tb_usuario" Association="Self.FK_tb_venta_tb_usuario">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_venta" EntitySet="tb_venta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

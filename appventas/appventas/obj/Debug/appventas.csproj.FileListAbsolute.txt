@@ -1,0 +1,44 @@
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\bin\Debug\appventas.exe.config
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\bin\Debug\appventas.exe
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\bin\Debug\appventas.pdb
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\bin\Debug\EntityFramework.dll
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\bin\Debug\EntityFramework.xml
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.csprojAssemblyReference.cache
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.Form1.resources
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.Properties.Resources.resources
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.csproj.GenerateResource.cache
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.csproj.CoreCompileInputs.cache
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.csproj.CopyComplete
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.exe
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.pdb
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.VISTAS.frmMenu.resources
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.VISTAS.frmVenta.resources
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.VISTAS.frmCliente.resources
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.VISTAS.frmDocumento.resources
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.VISTAS.frmProducto.resources
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.VISTAS.frmUsuario.resources
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.VISTAS.frmRegistro.resources
+C:\Users\cb272\Desktop\clases\tercer ciclo\Programacion 1\Proyectos en VisualStudio 2019\appventas\appventas\obj\Debug\appventas.VISTAS.frmComprobarContrasena.resources
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.csprojAssemblyReference.cache
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.Form1.resources
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.Properties.Resources.resources
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.VISTAS.frmCliente.resources
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.VISTAS.frmDocumento.resources
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.VISTAS.frmMenu.resources
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.VISTAS.frmProducto.resources
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.VISTAS.frmUsuario.resources
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.VISTAS.frmVenta.resources
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.csproj.GenerateResource.cache
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.csproj.CoreCompileInputs.cache
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.exe
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.pdb
+C:\Users\cb272\Desktop\appventas\appventas\bin\Debug\appventas.exe.config
+C:\Users\cb272\Desktop\appventas\appventas\bin\Debug\appventas.exe
+C:\Users\cb272\Desktop\appventas\appventas\bin\Debug\appventas.pdb
+C:\Users\cb272\Desktop\appventas\appventas\bin\Debug\EntityFramework.dll
+C:\Users\cb272\Desktop\appventas\appventas\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cb272\Desktop\appventas\appventas\bin\Debug\EntityFramework.xml
+C:\Users\cb272\Desktop\appventas\appventas\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cb272\Desktop\appventas\appventas\obj\Debug\appventas.csproj.CopyComplete
